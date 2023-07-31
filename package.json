@@ -17,5 +17,9 @@
   },
   "devDependencies": {
     "mocha": "^10.2.0"
+  },
+
+  "engines": {
+    "node": ">= 18.16.1"
   }
 }
