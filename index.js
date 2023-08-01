@@ -2,6 +2,7 @@ import express from "express";
 import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
 import SettingsBill from "./settings-bill.js"
+import  moment from "moment";
 
 const app = express();
 const settingsBill = SettingsBill();
@@ -44,8 +45,17 @@ app.post("/action", (req, res) => {
 });
 
 app.get("/actions", (req, res) => {
+
+    const currentTimestamp = settingsBill.actions().map(item => {
+        return {
+            type: item.type,
+            cost: item.cost,
+            timestamp: moment(item.timestamp).fromNow()
+        }
+    })
+
     res.render("actions", {
-        actions: settingsBill.actions()
+        actions: currentTimestamp
     })
 });
 

@@ -1,4 +1,4 @@
-import  moment from "moment";
+
 
 export default function SettingsBill() {
 
@@ -45,45 +45,17 @@ export default function SettingsBill() {
     }
 
     function actions(){
-
-        const currentTimestamp = actionList.map((item) => {
-            
-            let itemType = item.type;
-            let itemCost = item.cost;
-            let itemTimestamp = moment(item.timestamp).fromNow();
-          
-            return {
-                type: itemType,
-                cost: itemCost,
-                timestamp: itemTimestamp
-            }
-          
-        })
-        return currentTimestamp;
+        return actionList;
     }
 
     function actionsFor(type){
 
-        const currentTimestamp = actionList.map((item) => {
-            
-            let itemType = item.type;
-            let itemCost = item.cost;
-            let itemTimestamp = moment(item.timestamp).fromNow();
-          
-            return {
-                type: itemType,
-                cost: itemCost,
-                timestamp: itemTimestamp
-            }
-          
-        })
-
         const filteredActions = [];
 
         // loop through all the entries in the action list 
-        for (let index = 0; index < currentTimestamp.length; index++) {
+        for (let index = 0; index < actionList.length; index++) {
 
-            const action = currentTimestamp[index];
+            const action = actionList[index];
             // check this is the type we are doing the total for 
             if (action.type === type) {
                 // add the action to the list
