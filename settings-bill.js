@@ -35,7 +35,7 @@ export default function SettingsBill() {
             cost = callCost;
         }
 
-        if (action) {
+        if (action && cost) {
             actionList.push({
                 type: action,
                 cost,
