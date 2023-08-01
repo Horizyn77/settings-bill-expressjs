@@ -1,5 +1,3 @@
-
-
 export default function SettingsBill() {
 
     let smsCost;
