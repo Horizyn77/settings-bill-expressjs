@@ -105,13 +105,20 @@ export default function SettingsBill() {
         const total = grandTotal();
         const reachedWarningLevel = total >= warningLevel 
             && total < criticalLevel;
-
         return reachedWarningLevel;
     }
 
     function hasReachedCriticalLevel(){
         const total = grandTotal();
         return total >= criticalLevel;
+    }
+
+    function levelsCheck() {
+        if (hasReachedWarningLevel()) {
+            return "warning";
+        } else if (hasReachedCriticalLevel()) {
+            return "danger";
+        }
     }
 
     return {
@@ -122,6 +129,7 @@ export default function SettingsBill() {
         actionsFor,
         totals,
         hasReachedWarningLevel,
-        hasReachedCriticalLevel
+        hasReachedCriticalLevel,
+        levelsCheck
     }
 }
